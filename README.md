@@ -9,12 +9,10 @@
 
 原问题是一个最小化MILP问题， $\mathbf{x}$ 为整数变量， $\mathbf{y}$ 为连续变量， $\mathbf{x}$ 、 $\mathbf{y}$ 均为向量。
 
-$$
-\min \quad & \mathbf{c}^\top \mathbf{x} + \mathbf{d}^\top \mathbf{y} \\
-\text{s.t.} \quad & \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{y} \ge \mathbf{b} \\
-& \mathbf{y} \ge 0 \\
-& \mathbf{x} \in \mathbb{X}
-$$
+$$\min \quad \mathbf{c}^\top \mathbf{x} + \mathbf{d}^\top \mathbf{y} $$
+$$\text{s.t.} \quad \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{y} \ge \mathbf{b} $$
+$$ \mathbf{y} \ge 0 $$
+$$ \mathbf{x} \in \mathbb{X}$$
 
 ### 2.2 主问题：
 
