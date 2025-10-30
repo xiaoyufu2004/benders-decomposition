@@ -86,7 +86,7 @@ $$r_t^{\top}(b-Ax)\le 0$$
 
 $$  \theta \ge (b-Ax)^{\top}u_s^{\star}  $$
 
-$$  \mathrm{UB}\leftarrow  \min {\mathrm{UB},c^{\top}x^{(k)}+\phi \!(x^{(k)})}  $$
+$$  \mathrm{UB}\leftarrow  \min \{\mathrm{UB},c^{\top}x^{(k)}+\phi \!(x^{(k)}) \}  $$
 
 #### 4.2.2 主问题（累积所有割）  
 
