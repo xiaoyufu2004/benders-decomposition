@@ -69,17 +69,14 @@ $$
 * 选取一个可行或启发式起点 $x^{(0)}$  
 * 设上下界  
 
-   $$   \mathrm{UB}\leftarrow+\infty,\qquad
-   \mathrm{LB}\leftarrow-\infty,\qquad
-   k\leftarrow0   $$
+$$   \mathrm{UB}\leftarrow+\infty,\qquad \mathrm{LB}\leftarrow-\infty,\qquad k\leftarrow0   $$
 
 
 ### 4.2 循环迭代
 
 #### 4.2.1 子问题  
 
-$$\phi\!\bigl(x^{(k)}\bigr)=
-\min_{y\ge0}\Bigl\{\,d^{\top}y \;\bigm|\; By \ge b-Ax^{(k)}\Bigr\}$$
+$$\phi\!\bigl(x^{(k)}\bigr)=\min_{y\ge0}\Bigl\{\,d^{\top}y \;\bigm|\; By \ge b-Ax^{(k)}\Bigr\}$$
 
 * **若不可行**：取无界射线 $r_t$ ，生成可行性割
 
@@ -87,15 +84,13 @@ $$r_t^{\top}(b-Ax)\le 0$$
 
 * **若可行且有界**：得对偶最优解 $u_s^{\star}$ ，生成最优性割，并更新上界  
 
-  $$  \theta \;\ge\; (b-Ax)^{\top}u_s^{\star}  $$
+$$  \theta \;\ge\; (b-Ax)^{\top}u_s^{\star}  $$
 
-  $$  \mathrm{UB}\;\leftarrow\;
-  \min\!\Bigl\{\,\mathrm{UB},\;c^{\top}x^{(k)}+\phi\!\bigl(x^{(k)}\bigr)\Bigr\}  $$
+$$  \mathrm{UB}\;\leftarrow\;  \min\!\Bigl\{\,\mathrm{UB},\;c^{\top}x^{(k)}+\phi\!\bigl(x^{(k)}\bigr)\Bigr\}  $$
 
 #### 4.2.2 主问题（累积所有割）  
 
-$$\min_{x\in\mathbb X,\;\theta}\; c^{\top}x + \theta\\
-\text{s.t.已生成的全部可行性割与最优性割}$$
+$$\min_{x\in\mathbb X,\;\theta}\; c^{\top}x + \theta \text{s.t.已生成的全部可行性割与最优性割}$$
 
 得到新解 $\bigl(x^{(k+1)},\theta^{(k+1)}\bigr)$ ，并更新下界  
 
