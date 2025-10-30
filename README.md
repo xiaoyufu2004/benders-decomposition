@@ -18,21 +18,17 @@ $$ \mathbf{x} \in \mathbb{X}$$
 
 主问题的变量是原问题的**整数变量** $\mathbf{x}$ ，目标函数与原问题相同。主问题不包含原问题的约束条件，因此是**松弛主问题**。求解松弛主问题，得到原问题的一个下界。主问题中， $\theta$ 是辅助变量，用来“占位”表示“对子问题目标函数 $\phi(x)$ 的上界估计”，通过不断加割把 $\theta$ 收紧，最终逼得 $\theta=\phi(x)$ 。
 
-$$
-\min \quad & \mathbf{c}^\top \mathbf{x} +  \theta \\
-\text{s.t.} \quad & \mathbf{x} \in \mathbb{X}
-$$
+$$\min \quad \mathbf{c}^\top \mathbf{x} +  \theta $$
+$$\text{s.t.} \quad  \mathbf{x} \in \mathbb{X}$$
 
 
 ### 2.3 子问题：
 
 将松弛主问题的求解结果带入子问题。子问题的变量是原问题的**连续变量** $\mathbf{y}$ ，目标函数 $\phi(\mathbf{x})=\mathbf{d}^\top \mathbf{y}$ 。
 
-$$
-\phi(\mathbf{x}) = \min \quad & \mathbf{d}^\top \mathbf{y} \\
-\text{s.t.} \quad & \mathbf{B} \mathbf{y} \ge \mathbf{b} - \mathbf{A} \bar{\mathbf{x}} \\
-& \mathbf{y} \ge 0
-$$
+$$\phi(\mathbf{x}) = \min \quad  \mathbf{d}^\top \mathbf{y} $$
+$$\text{s.t.} \quad  \mathbf{B} \mathbf{y} \ge \mathbf{b} - \mathbf{A} \bar{\mathbf{x}} $$
+$$ \mathbf{y} \ge 0$$
 
 
 ### 2.4 对偶子问题：
@@ -40,23 +36,20 @@ $$
 
 子问题目标函数是最小化，因此对偶问题目标函数是最大化：
 
-$$
-\max \quad & (\mathbf{b} - \mathbf{A} \bar{\mathbf{x}})^\top \mathbf{u} \\
-\text{s.t.} \quad & \mathbf{B}^\top \mathbf{u} \le \mathbf{d} \\
-& \mathbf{u} \ge 0
-$$
+$$\max \quad  (\mathbf{b} - \mathbf{A} \bar{\mathbf{x}})^\top \mathbf{u}$$
+$$\text{s.t.} \quad  \mathbf{B}^\top \mathbf{u} \le \mathbf{d}$$
+$$\mathbf{u} \ge 0$$
 
 ## 3. 可行性割与最优性割：
 ### 3.1 可行性割：
 
-我们先引入**极射线**的概念。若对偶子问题**无界**（子问题无解），则其可行域存在某个方向（称为极射线），在这个方向上目标函数可以无限增加。极射线本质上是一种“逃离有界区域的方向”，描述了约束系统失效的方向性证据。我们利用这个极射线，构造一个**可行性割（feasibility cut）**，这个割将被引入主问题，以排除那些会导致子问题不可行的$\mathbf{x}$值：
-$$
-\mathbf{r}_t^\top (\mathbf{b} - \mathbf{A}\mathbf{x}) \le 0 \quad \text{for } t = 1, 2, \dots, T
-$$
+我们先引入**极射线**的概念。若对偶子问题**无界**（子问题无解），则其可行域存在某个方向（称为极射线），在这个方向上目标函数可以无限增加。极射线本质上是一种“逃离有界区域的方向”，描述了约束系统失效的方向性证据。我们利用这个极射线，构造一个**可行性割（feasibility cut）**，这个割将被引入主问题，以排除那些会导致子问题不可行的 $\mathbf{x}$ 值：
+
+$$\mathbf{r}_t^\top (\mathbf{b} - \mathbf{A}\mathbf{x}) \le 0 \quad \text{for } t = 1, 2, \dots, T$$
 
 ### 3.2 最优性割
 
-若对偶子问题在当前主问题解 $\bar{\mathbf{x}}$ 下有最优解，则说明子问题在该 $\bar{\mathbf{x}}$ 下是可行并有界的。此时，我们可以从中获得子问题的一个最优解 $\mathbf{y}^\ast$，从而构造出原问题的一个可行解 $(\bar{\mathbf{x}}, \mathbf{y}^\ast)$，其为原问题提供了一个**上界**，可用于更新当前原问题的最优值。
+若对偶子问题在当前主问题解 $\bar{\mathbf{x}}$ 下有最优解，则说明子问题在该 $\bar{\mathbf{x}}$ 下是可行并有界的。此时，我们可以从中获得子问题的一个最优解 $\mathbf{y}^\ast$ ，从而构造出原问题的一个可行解 $(\bar{\mathbf{x}} , \mathbf{y}^\ast)$ ，其为原问题提供了一个**上界**，可用于更新当前原问题的最优值。
 
 继续利用对偶理论，我们还可以从对偶子问题的最优对偶解 $\mathbf{u}^\ast$ 中提取关于子问题最优值函数 $\phi(x)$ 的**线性下界**：
 
@@ -64,7 +57,7 @@ $$
 \phi(x) \ge (\mathbf{b} - \mathbf{A} \mathbf{x})^\top \mathbf{u}^\ast
 $$
 
-为在主问题中逼近 $\phi(x)$，我们令主问题中的辅助变量 $\theta$ 代表对子问题最优值的估计，并引入如下**最优性割（optimality cut）**，保证 $\theta$ 永远不小于子问题的真实最优值，从而保持目标函数的正确性（这里推导比较复杂）：
+为在主问题中逼近 $\phi(x)$ ，我们令主问题中的辅助变量 $\theta$ 代表对子问题最优值的估计，并引入如下**最优性割（optimality cut）**，保证 $\theta$ 永远不小于子问题的真实最优值，从而保持目标函数的正确性（这里推导比较复杂）：
 
 $$
 \theta \ge (\mathbf{b} - \mathbf{A} \mathbf{x})^\top \mathbf{u}^\ast
@@ -86,17 +79,19 @@ $$
 ### 4.2 循环迭代
 
 #### 4.2.1 子问题  
+
 $$
 \phi\!\bigl(x^{(k)}\bigr)=
 \min_{y\ge0}\Bigl\{\,d^{\top}y \;\bigm|\; By \ge b-Ax^{(k)}\Bigr\}
 $$
 
-* **若不可行**：取无界射线 $r_t$，生成可行性割  
-  $$
-  r_t^{\top}(b-Ax)\le 0
-  $$
+* **若不可行**：取无界射线 $r_t$ ，生成可行性割
 
-* **若可行且有界**：得对偶最优解 $u_s^{\star}$，生成最优性割，并更新上界  
+$$
+r_t^{\top}(b-Ax)\le 0
+$$
+
+* **若可行且有界**：得对偶最优解 $u_s^{\star}$ ，生成最优性割，并更新上界  
 
   $$
   \theta \;\ge\; (b-Ax)^{\top}u_s^{\star}
@@ -108,12 +103,13 @@ $$
   $$
 
 #### 4.2.2 主问题（累积所有割）  
+
 $$
 \min_{x\in\mathbb X,\;\theta}\; c^{\top}x + \theta\\
 \text{s.t.已生成的全部可行性割与最优性割}
 $$
 
-得到新解 $\bigl(x^{(k+1)},\theta^{(k+1)}\bigr)$，并更新下界  
+得到新解 $\bigl(x^{(k+1)},\theta^{(k+1)}\bigr)$ ，并更新下界  
 
 $$
 \mathrm{LB}\;\leftarrow\;c^{\top}x^{(k+1)}+\theta^{(k+1)},\qquad
