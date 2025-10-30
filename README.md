@@ -9,31 +9,32 @@
 
 原问题是一个最小化MILP问题， $\mathbf{x}$ 为整数变量， $\mathbf{y}$ 为连续变量， $\mathbf{x}$ 、 $\mathbf{y}$ 均为向量。
 
-\begin{aligned}
+$$
 \min \quad & \mathbf{c}^\top \mathbf{x} + \mathbf{d}^\top \mathbf{y} \\
 \text{s.t.} \quad & \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{y} \ge \mathbf{b} \\
 & \mathbf{y} \ge 0 \\
 & \mathbf{x} \in \mathbb{X}
-\end{aligned}
+$$
 
 ### 2.2 主问题：
 
 主问题的变量是原问题的**整数变量** $\mathbf{x}$ ，目标函数与原问题相同。主问题不包含原问题的约束条件，因此是**松弛主问题**。求解松弛主问题，得到原问题的一个下界。主问题中， $\theta$ 是辅助变量，用来“占位”表示“对子问题目标函数 $\phi(x)$ 的上界估计”，通过不断加割把 $\theta$ 收紧，最终逼得 $\theta=\phi(x)$ 。
-\begin{aligned}
+
+$$
 \min \quad & \mathbf{c}^\top \mathbf{x} +  \theta \\
 \text{s.t.} \quad & \mathbf{x} \in \mathbb{X}
-\end{aligned}
+$$
 
 
 ### 2.3 子问题：
 
 将松弛主问题的求解结果带入子问题。子问题的变量是原问题的**连续变量** $\mathbf{y}$ ，目标函数 $\phi(\mathbf{x})=\mathbf{d}^\top \mathbf{y}$ 。
 
-\begin{aligned}
+$$
 \phi(\mathbf{x}) = \min \quad & \mathbf{d}^\top \mathbf{y} \\
 \text{s.t.} \quad & \mathbf{B} \mathbf{y} \ge \mathbf{b} - \mathbf{A} \bar{\mathbf{x}} \\
 & \mathbf{y} \ge 0
-\end{aligned}
+$$
 
 
 ### 2.4 对偶子问题：
@@ -41,11 +42,11 @@
 
 子问题目标函数是最小化，因此对偶问题目标函数是最大化：
 
-\begin{aligned}
+$$
 \max \quad & (\mathbf{b} - \mathbf{A} \bar{\mathbf{x}})^\top \mathbf{u} \\
 \text{s.t.} \quad & \mathbf{B}^\top \mathbf{u} \le \mathbf{d} \\
 & \mathbf{u} \ge 0
-\end{aligned}
+$$
 
 ## 3. 可行性割与最优性割：
 ### 3.1 可行性割：
