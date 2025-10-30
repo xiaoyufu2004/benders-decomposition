@@ -86,21 +86,21 @@ $$r_t^{\top}(b-Ax)\le 0$$
 
 $$  \theta \;\ge\; (b-Ax)^{\top}u_s^{\star}  $$
 
-$$  \mathrm{UB}\;\leftarrow\;  \min\!\{\,\mathrm{UB},\;c^{\top}x^{(k)}+\phi\!(x^{(k)})\}  $$
+$$  \mathrm{UB}\leftarrow  \min\!m\{\mathrm{UB},c^{\top}x^{(k)}+\phi \!(x^{(k)})\}  $$
 
 #### 4.2.2 主问题（累积所有割）  
 
-$$\min_{x\in\mathbb X,\;\theta}\; c^{\top}x + \theta \text{s.t.已生成的全部可行性割与最优性割}$$
+$$\min_{x\in\mathbb X,\theta} c^{\top}x + \theta \text{s.t.已生成的全部可行性割与最优性割}$$
 
 得到新解 $(x^{(k+1)},\theta^{(k+1)})$ ，并更新下界  
 
-$$\mathrm{LB}\;\leftarrow\;c^{\top}x^{(k+1)}+\theta^{(k+1)},\qquad
-k\;\leftarrow\;k+1$$
+$$\mathrm{LB}\leftarrow c^{\top}x^{(k+1)}+\theta^{(k+1)},\qquad
+k\leftarrow k+1$$
 
 
 ### 4.3 终止
 当 $\mathrm{UB}-\mathrm{LB}\le\varepsilon$ 时，  
 
-$$x^{(k)},\;y^{\star}\!(x^{(k)})$$
+$$x^{(k)},y^{\star} \!(x^{(k)})$$
 
 即为原问题的近似最优解。
