@@ -76,7 +76,7 @@ $$   \mathrm{UB}\leftarrow+\infty,\qquad \mathrm{LB}\leftarrow-\infty,\qquad k\l
 
 #### 4.2.1 子问题  
 
-$$\phi\!(x^{(k)})=\min_{y\ge0}\{\,d^{\top}y \;\bigm|\; By \ge b-Ax^{(k)}\}$$
+$$\phi\!(x^{(k)})=\min_{y\ge0} \{d^{\top}y \bigm|By \ge b-Ax^{(k)}\}$$
 
 * **若不可行**：取无界射线 $r_t$ ，生成可行性割
 
@@ -86,7 +86,7 @@ $$r_t^{\top}(b-Ax)\le 0$$
 
 $$  \theta \;\ge\; (b-Ax)^{\top}u_s^{\star}  $$
 
-$$  \mathrm{UB}\;\leftarrow\;  \min\!\Bigl\{\,\mathrm{UB},\;c^{\top}x^{(k)}+\phi\!\bigl(x^{(k)}\bigr)\Bigr\}  $$
+$$  \mathrm{UB}\;\leftarrow\;  \min\!\{\,\mathrm{UB},\;c^{\top}x^{(k)}+\phi\!(x^{(k)})\}  $$
 
 #### 4.2.2 主问题（累积所有割）  
 
@@ -101,6 +101,6 @@ k\;\leftarrow\;k+1$$
 ### 4.3 终止
 当 $\mathrm{UB}-\mathrm{LB}\le\varepsilon$ 时，  
 
-$$x^{(k)},\;y^{\star}\!\bigl(x^{(k)}\bigr)$$
+$$x^{(k)},\;y^{\star}\!(x^{(k)})$$
 
 即为原问题的近似最优解。
