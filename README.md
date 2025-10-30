@@ -84,13 +84,14 @@ $$r_t^{\top}(b-Ax)\le 0$$
 
 * **若可行且有界**：得对偶最优解 $u_s^{\star}$ ，生成最优性割，并更新上界  
 
-$$  \theta \;\ge\; (b-Ax)^{\top}u_s^{\star}  $$
+$$  \theta \ge (b-Ax)^{\top}u_s^{\star}  $$
 
-$$  \mathrm{UB}\leftarrow  \min\!m\{\mathrm{UB},c^{\top}x^{(k)}+\phi \!(x^{(k)})\}  $$
+$$  \mathrm{UB}\leftarrow  \min {\mathrm{UB},c^{\top}x^{(k)}+\phi \!(x^{(k)})}  $$
 
 #### 4.2.2 主问题（累积所有割）  
 
-$$\min_{x\in\mathbb X,\theta} c^{\top}x + \theta \text{s.t.已生成的全部可行性割与最优性割}$$
+$$\min_{x\in\mathbb X,\theta} c^{\top}x + \theta $$
+$$\text{s.t.已生成的全部可行性割与最优性割}$$
 
 得到新解 $(x^{(k+1)},\theta^{(k+1)})$ ，并更新下界  
 
