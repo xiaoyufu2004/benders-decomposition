@@ -76,7 +76,7 @@ $$   \mathrm{UB}\leftarrow+\infty,\qquad \mathrm{LB}\leftarrow-\infty,\qquad k\l
 
 #### 4.2.1 子问题  
 
-$$\phi\!\bigl(x^{(k)}\bigr)=\min_{y\ge0}\Bigl\{\,d^{\top}y \;\bigm|\; By \ge b-Ax^{(k)}\Bigr\}$$
+$$\phi\!(x^{(k)})=\min_{y\ge0}\{\,d^{\top}y \;\bigm|\; By \ge b-Ax^{(k)}\}$$
 
 * **若不可行**：取无界射线 $r_t$ ，生成可行性割
 
@@ -92,7 +92,7 @@ $$  \mathrm{UB}\;\leftarrow\;  \min\!\Bigl\{\,\mathrm{UB},\;c^{\top}x^{(k)}+\phi
 
 $$\min_{x\in\mathbb X,\;\theta}\; c^{\top}x + \theta \text{s.t.已生成的全部可行性割与最优性割}$$
 
-得到新解 $\bigl(x^{(k+1)},\theta^{(k+1)}\bigr)$ ，并更新下界  
+得到新解 $(x^{(k+1)},\theta^{(k+1)})$ ，并更新下界  
 
 $$\mathrm{LB}\;\leftarrow\;c^{\top}x^{(k+1)}+\theta^{(k+1)},\qquad
 k\;\leftarrow\;k+1$$
